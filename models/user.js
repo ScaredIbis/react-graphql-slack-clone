@@ -3,10 +3,26 @@ export default (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      validate: {
+        isAlphanumeric: {
+          args: true,
+          msg: 'Username can only contain letters and numbers',
+        },
+        len: {
+          args: [3, 25],
+          msg: 'Username must be between 3 and 25 characters long',
+        },
+      },
     },
     email: {
       type: DataTypes.STRING,
       unique: true,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: 'Invalid email address',
+        },
+      },
     },
     password: {
       type: DataTypes.STRING,
