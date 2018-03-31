@@ -13,12 +13,12 @@ export default `
     teams: [Team!]!
   }
 
-  type Mutation {
-    createUser(username: String!, email: String!, password: String!): User!
-  }
-
   type Query {
     getUser(id: Int!): User!
     allUsers: [User!]!
+  }
+
+  type Mutation {
+    register(username: String!, email: String!, password: String!): Boolean!
   }
 `;
